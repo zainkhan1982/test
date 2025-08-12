@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Company Profile - NiceAdmin</title>
+
+  <!-- Favicons -->
+  <link href="/public/img/favicon.png" rel="icon" />
+  <link href="/public/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Nunito:300,400,600,700|Poppins:300,400,500,600,700"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="/public/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="/public/vendor/quill/quill.snow.css" rel="stylesheet" />
+  <link href="/public/vendor/quill/quill.bubble.css" rel="stylesheet" />
+  <link href="/public/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="/public/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="/public/img/logo.png" alt="" />
+        <span class="d-none d-lg-block">NiceAdmin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/public/img/profile-img.jpg" alt="Profile" class="rounded-circle" />
+
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/signout">
+                <i class="bi bi-box-arrow-right"></i><span>Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/company-profile">
+          <i class="bi bi-person"></i>
+          <span>Company Profile</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Company Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active">Company Profile</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section profile">
+
+      
+      <div class="row">
+        <div class="col-xl-4">
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+              <img src="/public/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <h2>
+                <%= user.legalName || 'Company Name' %>
+              </h2>
+
+              <div class="social-links mt-2">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8">
+          <div class="card">
+            <div class="card-body pt-3">
+
+              <!-- Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab"
+                    data-bs-target="#profile-overview">Overview</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change
+                    Password</button>
+                </li>
+              </ul>
+
+              <div class="tab-content pt-2">
+                <!-- Overview -->
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                  <h5 class="card-title">Company Details</h5>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Legal Name</div>
+                    <div class="col-lg-9 col-md-8">
+                      <%= user.legalName %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">GST Number</div>
+                    <div class="col-lg-9 col-md-8">
+                      <%= user.gstNumber %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div class="col-lg-9 col-md-8">
+                      <%= user.address %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                    <div class="col-lg-9 col-md-8">
+                      <%= user.phone %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Email</div>
+                    <div class="col-lg-9 col-md-8">
+                      <%= user.email %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Edit Profile -->
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                    
+                  <% if (profileError) { %>
+                    <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                      <%= profileError %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+
+                      <% if (profileSuccess) { %>
+                        <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                          <%= profileSuccess %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <% } %>
+
+                          <form class="row g-3" method="POST" action="/save-profile" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                              <label for="legalName" class="col-sm-2 col-form-label">Legal Name</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="legalName" name="legalName"
+                                  value="<%= user.legalName %>" required />
+                              </div>
+                            </div>
+
+                            <div class="row mb-3">
+                              <label for="email" class="col-sm-2 col-form-label">Email Address</label>
+                              <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" name="email"
+                                  value="<%= user.email %>" required />
+                              </div>
+                            </div>
+
+                            <div class="row mb-3">
+                              <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                              <div class="col-sm-10">
+                                <div class="input-group">
+                                  <span class="input-group-text">IN +91</span>
+                                  <input type="text" class="form-control" id="phone" name="phone"
+                                    placeholder="Enter mobile number" value="<%= user.phone %>" required>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row mb-3">
+                              <label for="gstNumber" class="col-sm-2 col-form-label">GST Number</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="gstNumber" name="gstNumber"
+                                  value="<%= user.gstNumber %>" required />
+                              </div>
+                            </div>
+
+                            <div class="row mb-3">
+                              <label for="address" class="col-sm-2 col-form-label">Address</label>
+                              <div class="col-sm-10">
+                                <input class="form-control" id="address" name="address" value="<%= user.address %>"
+                                  required />
+                              </div>
+                            </div>
+
+                            <!-- GST Certificate Upload -->
+                            <div class="row mb-3">
+                              <label for="gstCertificate" class="col-sm-2 col-form-label">GST Certificate</label>
+                              <div class="col-sm-10">
+                                <input type="file" class="form-control" id="gstCertificate" name="gstCertificate"
+                                  accept=".jpg, .jpeg, .png" />
+                                <% if (user.gstCertificate) { %>
+                                  <img src="<%= user.gstCertificate %>" alt="GST Certificate" width="100" class="mt-2">
+                                  <% } %>
+                              </div>
+                            </div>
+
+                            <!-- Signatory Upload -->
+                            <div class="row mb-3">
+                              <label for="signatory" class="col-sm-2 col-form-label">Authorized Signatory</label>
+                              <div class="col-sm-10">
+                                <input type="file" class="form-control" id="signatory" name="signatory"
+                                  accept=".jpg, .jpeg, .png" />
+                                <% if (user.signatory) { %>
+                                  <img src="<%= user.signatory %>" alt="Signatory" width="100" class="mt-2">
+                                  <% } %>
+                              </div>
+                            </div>
+
+                            <div class="row mb-3">
+                              <div class="col-sm-10 offset-sm-2">
+                                <button type="submit" class="btn btn-primary">Save Profile</button>
+                              </div>
+                            </div>
+                          </form>
+                </div>
+
+                <!-- Settings -->
+                <div class="tab-pane fade pt-3" id="profile-settings">
+                  <% if (settingsError) { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <%= settingsError %>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  <% } %>
+                  
+                  <% if (settingsSuccess) { %>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <%= settingsSuccess %>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  <% } %>
+                  
+                  <form id="settingsForm" method="POST" action="/save-settings">
+                    <div class="row mb-3">
+                      <label class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
+                      <div class="col-md-8 col-lg-9">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="changesMade" name="notifyChanges"
+                            <%=user.notifyChanges ? "checked" : "" %> />
+                          <label class="form-check-label" for="changesMade">Changes made to your account</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="newProducts" name="notifyProducts"
+                            <%=user.notifyProducts ? "checked" : "" %> />
+                          <label class="form-check-label" for="newProducts">Information on new products and
+                            services</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="proOffers" name="notifyPromos"
+                            <%=user.notifyPromos ? "checked" : "" %> />
+                          <label class="form-check-label" for="proOffers">Marketing and promo offers</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled />
+                          <label class="form-check-label" for="securityNotify">Security alerts</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Change Password -->
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <% if (passwordError) { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <%= passwordError %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+
+                      <% if (passwordSuccess) { %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <%= passwordSuccess %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <% } %>
+
+                          <form method="POST" action="/change-password">
+                            <!-- Current Password -->
+                            <div class="row mb-3">
+                              <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
+                                Password</label>
+                              <div class="col-md-8 col-lg-9">
+                                <div class="position-relative">
+                                  <input name="currentPassword" type="password" class="form-control"
+                                    id="currentPassword" />
+                                  <button type="button"
+                                    class="btn btn-link position-absolute top-50 end-0 translate-middle-y me-2 password-toggle"
+                                    data-target="currentPassword" aria-label="Show password" title="Show password">
+                                    <i class="bi bi-eye"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- New Password -->
+                            <div class="row mb-3">
+                              <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                              <div class="col-md-8 col-lg-9">
+                                <div class="position-relative">
+                                  <input name="newPassword" type="password" class="form-control" id="newPassword"
+                                    title="Password must be at least 8 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character."
+                                    required />
+                                  <button type="button"
+                                    class="btn btn-link position-absolute top-50 end-0 translate-middle-y me-2 password-toggle"
+                                    data-target="newPassword" aria-label="Show password" title="Show password">
+                                    <i class="bi bi-eye"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Re-enter New Password -->
+                            <div class="row mb-3">
+                              <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New
+                                Password</label>
+                              <div class="col-md-8 col-lg-9">
+                                <div class="position-relative">
+                                  <input name="renewPassword" type="password" class="form-control" id="renewPassword"
+                                    title="Password must be at least 8 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character."
+                                    required />
+                                  <button type="button"
+                                    class="btn btn-link position-absolute top-50 end-0 translate-middle-y me-2 password-toggle"
+                                    data-target="renewPassword" aria-label="Show password" title="Show password">
+                                    <i class="bi bi-eye"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-primary">Change Password</button>
+                            </div>
+                          </form>
+                </div>
+
+              </div> <!-- tab-content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- JS Files -->
+  <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/public/vendor/quill/quill.js"></script>
+  <script src="/public/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/public/js/main.js"></script>
+
+  <!-- Password Toggle Script -->
+  <script>
+    document.querySelectorAll('.password-toggle').forEach(button => {
+      button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+        const icon = this.querySelector('i');
+
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.className = 'bi bi-eye-slash';
+        } else {
+          input.type = 'password';
+          icon.className = 'bi bi-eye';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
